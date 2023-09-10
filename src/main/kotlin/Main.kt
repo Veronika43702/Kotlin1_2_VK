@@ -8,12 +8,12 @@ fun main() {
 
     // 2. Вывод слов после числительного
     val likes = 111
-    val personText = if (((likes-1) % 10 == 0 && (likes-11) % 10 != 0) || likes == 1){
+    val personText = if (likes % 10 == 1 && likes.toString().substring(likes.toString().length-2,likes.toString().length) != "11" ){
        "человеку"
     } else {
         "людям"
     }
-    println("Понрасилось " + likes + " " + personText)
+    println("Понравилось " + likes + " " + personText)
 
     // 3. Меломан
     val sum: Int = 100000
@@ -31,13 +31,12 @@ fun main() {
     } else {
         sum - discountPercentageSum
     }
-    println(sumWithCounts)
 
     val totalSum = if (regularCustomer == true){
-        Math.round(sumWithCounts as Double - sumWithCounts * regularCustomerPercentage).toInt()
+        Math.round(sumWithCounts.toDouble() - sumWithCounts.toDouble() * regularCustomerPercentage).toInt()
     }
     else {
-        Math.round(sumWithCounts as Double)
+        Math.round(sumWithCounts.toDouble())
     }
 
     println(totalSum)
